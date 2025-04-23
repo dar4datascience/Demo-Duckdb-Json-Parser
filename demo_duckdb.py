@@ -49,7 +49,7 @@ def parse_welocalize_json(file_paths: List[str], output_dir: str = "./output"):
             FROM (
                 SELECT 
                     UNNEST(statements) AS s,
-                    more
+                    more --- ASSUMING is next page, so its only relevant for getting the full data before parsing a json
                 FROM read_json_auto('{file_path}')
             )
         """)
